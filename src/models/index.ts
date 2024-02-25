@@ -20,10 +20,10 @@ const models = {
     OutfitType: getOutfitTypes(sequelize),
 }
 
-models.CameraType.hasMany(models.Camera, {foreignKey: "id"});
-models.Camera.belongsTo(models.CameraType);
+// models.CameraType.hasMany(models.Camera, {foreignKey: "id"});
+// models.Camera.belongsTo(models.CameraType);
 
-models.OutfitType.hasMany(models.Camera, {foreignKey: "id"});
-models.Camera.belongsTo(models.OutfitType);
+// models.OutfitType.hasMany(models.Camera, {foreignKey: "id"});
+// models.Camera.belongsTo(models.OutfitType);
 
 export { sequelize, models };

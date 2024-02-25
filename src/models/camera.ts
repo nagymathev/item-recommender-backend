@@ -9,15 +9,15 @@ const getCameraModel = (sequelize: Sequelize) => {
                 notNull: true,
             },
         },
-        camera_type_id: {
-            type: DataTypes.INTEGER,
+        camera_type: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notNull: true,
             },
         },
-        outfit_type_id: {
-            type: DataTypes.INTEGER,
+        outfit_type: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 notNull: true,
