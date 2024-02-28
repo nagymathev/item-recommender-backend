@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize } from "sequelize";
 
-const getCameraModel = (sequelize: Sequelize) => {
-    const Camera = sequelize.define('camera', {
+const getCameraMountModel = (sequelize: Sequelize) => {
+    const CameraMount = sequelize.define('camera_mount', {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -9,21 +9,7 @@ const getCameraModel = (sequelize: Sequelize) => {
                 notNull: true,
             },
         },
-        camera_type: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: true,
-            },
-        },
-        outfit_type: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                notNull: true,
-            },
-        },
-        resolution: {
+        num_of_spots: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -39,10 +25,10 @@ const getCameraModel = (sequelize: Sequelize) => {
             defaultValue: 0,
         }
     }, {
-        timestamps: false
+        timestamps: false,
     })
 
-    return Camera;
+    return CameraMount;
 }
 
-export default getCameraModel;
+export default getCameraMountModel;

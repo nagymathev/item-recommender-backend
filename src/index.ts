@@ -23,7 +23,7 @@ app.use('/camera', routes.camera);
 
 const eraseDBOnSync = false;
 
-sequelize.sync({ force: eraseDBOnSync }).then(() => {
+sequelize.sync({ force: eraseDBOnSync, alter: true }).then(() => {
     if (eraseDBOnSync) {
         setTimeout(() => {
             createCamera();
