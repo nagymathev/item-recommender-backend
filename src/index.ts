@@ -19,13 +19,12 @@ app.use((req, res, next) => {
     next();
 })
 
-const eraseDBOnSync = true;
+app.use('/camera', routes.camera);
 
-sequelize.sync({ force: eraseDBOnSync, alter: true }).then(() => {
+const eraseDBOnSync = false;
+
+sequelize.sync({ force: eraseDBOnSync }).then(() => {
     if (eraseDBOnSync) {
-        // createUser();
-        createCameraType();
-        createOutfitType();
         setTimeout(() => {
             createCamera();
         }, 1000);
@@ -35,20 +34,6 @@ sequelize.sync({ force: eraseDBOnSync, alter: true }).then(() => {
         console.log(`App is listening on port ${process.env.PORT}`);
     })
 })
-
-// const createUser = async () => {
-//     await models.User.create(
-//         {
-//             username: 'viktor',
-//         }
-//     );
-
-//     await models.User.create(
-//         {
-//             username: 'The Other Dude',
-//         }
-//     )
-// }
 
 const createCamera = async () => {
     await models.Camera.bulkCreate([
@@ -69,44 +54,6 @@ const createCamera = async () => {
             camera_type: "Yes Camera",
             outfit_type: "Train Hopper",
             resolution: 128,
-        }
-    ])
-}
-
-const createCameraType = async () => {
-    await models.CameraType.create(
-        {
-            name: "Hyper Camera",
-        }
-    );
-
-    await models.CameraType.create(
-        {
-            name: "Underwater Camera",
-        }
-    );
-
-    await models.CameraType.create(
-        {
-            name: "IP Camera",
-        }
-    );
-}
-
-const createOutfitType = async () => {
-    await models.OutfitType.bulkCreate([
-        {
-            name: "McDonalds Camera",
-        },
-        {
-            name: "Train Camera",
-        },
-        {
-            name: "House Security Camera",
         },
     ])
 }
-
-app.use('/camera', routes.camera);
-app.use('/camera_type', routes.camera_type);
-app.use('/outfit_type', routes.outfit_type);

@@ -30,6 +30,14 @@ const getCameraModel = (sequelize: Sequelize) => {
                 notNull: true,
             },
         },
+        price: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
+            validate: {
+                notNull: true,
+            },
+            defaultValue: 0,
+        }
     })
 
     return Camera;

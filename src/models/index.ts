@@ -1,9 +1,6 @@
 import { Sequelize } from "sequelize";
 
-import { getUserModel } from "./user";
 import getCameraModel from "./camera";
-import getCameraTypeModel from "./cameraType";
-import getOutfitTypes from "./outfit_type";
 
 const sequelize = new Sequelize(
     process.env.DATABASE!,
@@ -16,8 +13,6 @@ const sequelize = new Sequelize(
 
 const models = {
     Camera: getCameraModel(sequelize),
-    CameraType: getCameraTypeModel(sequelize),
-    OutfitType: getOutfitTypes(sequelize),
 }
 
 // models.CameraType.hasMany(models.Camera, {foreignKey: "id"});
