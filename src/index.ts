@@ -20,6 +20,7 @@ app.use((req, res, next) => {
 })
 
 app.use('/camera', routes.camera);
+app.use('/camera_mount', routes.camera_mount);
 
 const eraseDBOnSync = false;
 
