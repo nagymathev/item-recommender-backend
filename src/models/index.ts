@@ -4,8 +4,8 @@ import getCameraModel from "./camera";
 import getCameraMountModel from "./camera_mount";
 
 const sequelize = new Sequelize(`
-    postgres://${process.env.BACKEND_USER}:${process.env.BACKEND_PASSWORD}
-    @${process.env.BACKEND_URL}:${process.env.BACKEND_PORT}/${process.env.BACKEND}`)
+    postgres://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}
+    @${process.env.DATABASE_URL}:${process.env.DATABASE_PORT}/${process.env.DATABASE}`)
 
 const models = {
     Camera: getCameraModel(sequelize),
